@@ -1,0 +1,37 @@
+{
+  "outputs": [
+    {
+      "topic": "scored_applications",
+      "key": 1001,
+      "value": {
+        "JOB_ID": 1,
+        "TITLE": "Cashier",
+        "FIRST_NAME": "Jane",
+        "LAST_NAME": "Doe",
+        "SCORE": null
+      }
+    },
+    {
+      "topic": "scored_applications",
+      "key": 1002,
+      "value": {
+        "JOB_ID": 1,
+        "TITLE": "Cashier",
+        "FIRST_NAME": "Joe",
+        "LAST_NAME": "Smith",
+        "SCORE": null
+      }
+    },
+    {
+      "topic": "scored_applications",
+      "key": 1001,
+      "value": {
+        "JOB_ID": 1,
+        "TITLE": "Cashier",
+        "FIRST_NAME": "Jane",
+        "LAST_NAME": "Doe",
+        "SCORE": 90.0
+      }
+    }
+  ]
+}

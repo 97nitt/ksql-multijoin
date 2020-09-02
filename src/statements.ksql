@@ -1,0 +1,37 @@
+CREATE TABLE jobs (job_id INT PRIMARY KEY, title VARCHAR)
+    WITH (
+        KAFKA_TOPIC = 'jobs',
+        VALUE_FORMAT = 'JSON',
+        PARTITIONS = 3,
+        REPLICAS = 1);
+
+CREATE STREAM applications (application_id INT KEY, job_id INT, first_name VARCHAR, last_name VARCHAR)
+    WITH (
+        KAFKA_TOPIC = 'applications',
+        VALUE_FORMAT = 'JSON',
+        PARTITIONS = 3,
+        REPLICAS = 1);
+
+CREATE STREAM application_scores (application_id INT KEY, score DOUBLE)
+    WITH (
+        KAFKA_TOPIC = 'application_scores',
+        VALUE_FORMAT = 'JSON',
+        PARTITIONS = 3,
+        REPLICAS = 1);
+
+CREATE STREAM scored_applications
+    WITH (
+        KAFKA_TOPIC = 'scored_applications',
+        VALUE_FORMAT = 'JSON',
+        PARTITIONS = 3,
+        REPLICAS = 1)
+
+    AS SELECT applications.application_id as application_id,
+              jobs.job_id as job_id,
+              jobs.title,
+              applications.first_name,
+              applications.last_name,
+              application_scores.score
+    FROM applications
+    INNER JOIN jobs ON jobs.job_id = applications.job_id
+    LEFT JOIN application_scores WITHIN 1 HOUR ON application_scores.application_id = applications.application_id;

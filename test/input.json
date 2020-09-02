@@ -1,0 +1,50 @@
+{
+  "inputs": [
+    {
+      "topic": "jobs",
+      "key": 1,
+      "value": {
+        "title": "Cashier"
+      }
+    },
+    {
+      "topic": "jobs",
+      "key": 2,
+      "value": {
+        "title": "Cook"
+      }
+    },
+    {
+      "topic": "jobs",
+      "key": 3,
+      "value": {
+        "title": "Driver"
+      }
+    },
+    {
+      "topic": "applications",
+      "key": 1001,
+      "value": {
+        "job_id": 1,
+        "first_name": "Jane",
+        "last_name": "Doe"
+      }
+    },
+    {
+      "topic": "applications",
+      "key": 1002,
+      "value": {
+        "job_id": 1,
+        "first_name": "Joe",
+        "last_name": "Smith"
+      }
+    },
+    {
+      "topic": "application_scores",
+      "key": 1001,
+      "value": {
+        "score": 90.0
+      }
+    }
+  ]
+}
